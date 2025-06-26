@@ -1,3 +1,5 @@
+# Kali Linux .zshrc file
+
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
@@ -282,6 +284,6 @@ alias zs='nvim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 alias nvc='nvim ~/.config/nvim/init.lua'
-alias tmuxc'nvim ~/.config/tmux/tmux.conf'
+
 
 
