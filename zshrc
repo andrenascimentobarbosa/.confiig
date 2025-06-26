@@ -98,7 +98,7 @@ configure_prompt() {
     # Skull emoji for root terminal
     #[ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
-        myprompt)
+        redblue)
             PROMPT='%F{red}%n%f@%F{blue}%m%f:%F{magenta}%~%f%b%# '
             ;;
 
@@ -122,7 +122,7 @@ configure_prompt() {
 # The following block is surrounded by two delimiters.
 # These delimiters must not be modified. Thanks.
 # START KALI CONFIG VARIABLES
-PROMPT_ALTERNATIVE=myprompt
+PROMPT_ALTERNATIVE=redblue
 NEWLINE_BEFORE_PROMPT=no
 # STOP KALI CONFIG VARIABLES
 
@@ -185,7 +185,9 @@ unset color_prompt force_color_prompt
 
 toggle_oneline_prompt(){
     if [ "$PROMPT_ALTERNATIVE" = oneline ]; then
-        PROMPT_ALTERNATIVE=twoline
+        PROMPT_ALTERNATIVE=twoline 
+    elif [ "$PROMPT_ALTERNATIVE" = twoline ]; then
+        PROMPT_ALTERNATIVE=backtrack
     else
         PROMPT_ALTERNATIVE=oneline
     fi
