@@ -1,5 +1,3 @@
-# Kali Linux .zshrc file
-
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
@@ -98,6 +96,14 @@ configure_prompt() {
     # Skull emoji for root terminal
     #[ "$EUID" -eq 0 ] && prompt_symbol=💀
     case "$PROMPT_ALTERNATIVE" in
+        simple)
+            PROMPT='%B%F{blue}%~%f%b %B$%b '
+            ;;
+        simple_twoline) 
+            PROMPT=' %B%F{blue}%~%f%b 
+ %B$%b '
+            ;;
+
         redblue)
             PROMPT='%F{red}%n%f@%F{blue}%m%f:%F{magenta}%~%f%b%# '
             ;;
@@ -122,8 +128,8 @@ configure_prompt() {
 # The following block is surrounded by two delimiters.
 # These delimiters must not be modified. Thanks.
 # START KALI CONFIG VARIABLES
-PROMPT_ALTERNATIVE=redblue
-NEWLINE_BEFORE_PROMPT=no
+PROMPT_ALTERNATIVE=simple_twoline
+NEWLINE_BEFORE_PROMPT=yes
 # STOP KALI CONFIG VARIABLES
 
 if [ "$color_prompt" = yes ]; then
@@ -275,17 +281,14 @@ export EDITOR=vim
 
 # alias
 
-alias vi='nvim'
-alias vim='nvim'
 alias nv='nvim'
 
 alias mp4='yt-dlp -o "%(title)s.%(ext)s" --recode-video mp4 --postprocessor-args "-vcodec libx264 -acodec aac"'
 alias mp3='yt-dlp -x --audio-format mp3'
 
-alias zs='nvim ~/.zshrc'
+alias zs='vi ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 alias nvc='nvim ~/.config/nvim/init.lua'
-
 
 
